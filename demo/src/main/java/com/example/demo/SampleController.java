@@ -2,6 +2,8 @@ package com.example.demo;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ch.qos.logback.core.model.Model;
@@ -31,6 +33,14 @@ public class SampleController {
             res += i;
         }
         mav.addObject("msg", "total: " + res);
+        mav.setViewName("index");
+        return mav;
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public ModelAndView form(@RequestParam("text") String str, ModelAndView mav){
+        mav.addObject("msg", "こんにちは");
+        mav.addObject("value", str);
         mav.setViewName("index");
         return mav;
     }
