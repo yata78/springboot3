@@ -36,12 +36,4 @@ public class SampleController {
         mav.setViewName("index");
         return mav;
     }
-
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public ModelAndView form(@RequestParam("text") String str, ModelAndView mav){
-        mav.addObject("msg", "こんにちは");
-        mav.addObject("value", str);
-        mav.setViewName("index");
-        return mav;
-    }
 }

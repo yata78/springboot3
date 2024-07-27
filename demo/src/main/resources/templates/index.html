@@ -6,17 +6,43 @@
     <title>Document</title>
 </head>
 <body class="container">
-    <div class="alert alert-primary" th:if = "${flag}">
-        <h5>Alert</h5>
-        <p th:text = ${msg}></p>
-    </div>
-
-    <div class="card" th:unless="${flag}">
-        <div class="card-body">
-            <h5 class="card-title">Message</h5>
-            <p class="card-text" th:text="${msg}"></p>
+    
+    <h1 class="display-4 mb-4" th:text="${title}"></h1>
+    <p th:text="${msg}"></p>
+    
+    <form method="post" action="/" th:object="${formModel}">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" th:value="*{name}"/>
         </div>
-    </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Mail</label>
+            <input type="text" class="form-control" name="mail" th:value="*{mail}" />
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Age</label>
+            <input type="text" class="form-control" name="age" th:value="*{age}"/>
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Memo</label>
+            <input type="text" class="form-control" name="memo" th:value="*{memo}"/>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Create"/>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr><th>ID</th><th>Name</th><th>Age</th><th>Memo</th></tr>
+        </thead>
+        <tbody>
+            <tr th:each="item:${data}">
+                <td th:each="${item.id}"></td>
+                <td th:each="${item.name}"></td>
+                <td th:each="${item.age}"></td>
+                <td th:each="${item.mail}"></td>
+            </tr>
+        </tbody>
+    </table>
     
 </body>
 </html>
