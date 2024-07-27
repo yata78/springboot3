@@ -17,7 +17,7 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    int Id;
+    Integer Id;
 
     @Column(length = 50, nullable = false)
     String name;

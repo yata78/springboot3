@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="display-4 mb-4" th:text="${title}"></h1>
+    <p th:text="${msg}"></p>
+
+    <form method="post" action="/edit" th:object="${formModel}">
+        <input type="hidden" name="id" th:value="*{id}">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" th:value="*{name}">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Mail</label>
+            <input type="text" class="form-control" name="mail" th:value="*{mail}">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Age</label>
+            <input type="text" class="form-control" name="age" th:value="*{age}">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Memo</label>
+            <input type="text" class="form-control" name="memo" th:value="*{memo}">
+        </div>
+        <input type="submit" class="btn btn-primary" value="update">
+    </form>
+</body>
+</html>
